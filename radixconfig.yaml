@@ -1,7 +1,7 @@
 apiVersion: radix.equinor.com/v1
 kind: RadixApplication
 metadata:
-  name: echo
+  name: vnys-echo
 spec:
   environments:
     - name: production
@@ -12,12 +12,12 @@ spec:
       src: ./echo
       ports:
       - name: http
-        port: 3000
+        port: 3002
       public: false
       environmentConfig:
         - environment: production
           variables:
-            PORT: 3000
+            PORT: 3002
             NODE_ENV: "production"
           monitoring: true
           resources:
@@ -41,7 +41,7 @@ spec:
           variables:
             PORT: 3001
             NODE_ENV: "production"
-            ECHO_URL: "http://echo:3000"
+            ECHO_URL: "http://echo:3002"
           monitoring: false
           resources:
             requests:
